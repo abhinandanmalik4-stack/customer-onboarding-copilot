@@ -1,10 +1,18 @@
 # Customer onboarding and success copilot
+
+## Beginner version: start here
+Double-click Start.cmd for a simple tracker with one table, Save changes, and Add a task.
+Read [your first lesson](docs/START_HERE.md). Study only basic_app.py and basic_storage.py initially.
+This version uses separate local data in data/basic_tasks.csv.
+The full prototype is available through Start-Advanced.cmd.
+
 A runnable simulated SaaS onboarding program for eight customers.
 
 ## Run
-Double-click Start.cmd. It uses the installed parent environment or your local .venv.
+Double-click Start.cmd for the beginner tracker or Start-Advanced.cmd for the full prototype. Both use the installed parent environment or your local .venv.
 To make this repository standalone elsewhere: run Setup.cmd (requires Python 3.12), then Start.cmd.
-From an activated environment: python -m streamlit run app.py --server.port 8501.
+From an activated environment: python -m streamlit run basic_app.py --server.port 8501.
+For the full prototype, replace basic_app.py with app.py.
 Tests: python -m unittest discover -s tests -v.
 
 ## Features

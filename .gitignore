@@ -8,3 +8,6 @@ data/tasks.csv
 data/escalations.csv
 output/
 .pbi/
+
+data/basic_tasks.csv
+data/*.tmp
