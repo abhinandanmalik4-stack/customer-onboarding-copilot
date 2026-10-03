@@ -112,3 +112,50 @@ def add_actions(frame,customer,actions):
         if duplicate.any(): continue
         result.loc[len(result)]=[uuid.uuid4().hex[:10],customer,item["task"],item["owner"],item["due_date"],"Not started","","Reviewed call-note action"]
     return validate_tasks(result)
+
+
+def create_customer(frame, customer_name, owner, kickoff_date):
+    """Return a new tracker containing a customer's six onboarding tasks.
+
+    This function handles business rules only. The interface decides when to save.
+    """
+    # Normalize repeated spaces so "Acme  Studio" and "Acme Studio" match.
+    customer_name = " ".join(customer_name.split())
+    owner = " ".join(owner.split())
+    if not customer_name or not owner:
+        raise ValueError("Enter both a customer name and an owner.")
+    if not isinstance(kickoff_date, date):
+        raise ValueError("Choose a valid kickoff date.")
+
+    existing = validate_tasks(frame)
+    names = existing.customer.map(lambda value: " ".join(value.split()).casefold())
+    if customer_name.casefold() in set(names):
+        raise ValueError("This customer already exists. Use the tracker to edit their tasks.")
+
+    # These are adjustable demo milestones, not promised delivery dates.
+    workflow = [
+        ("Kickoff", 0),
+        ("Requirements", 2),
+        ("Setup", 4),
+        ("Testing", 6),
+        ("Training", 8),
+        ("Go-live", 10),
+    ]
+    rows = []
+    previous_task_id = ""
+    for task_name, days_after_kickoff in workflow:
+        task_id = uuid.uuid4().hex
+        rows.append({
+            "id": task_id,
+            "customer": customer_name,
+            "task": task_name,
+            "owner": owner,
+            "due_date": (kickoff_date + timedelta(days=days_after_kickoff)).isoformat(),
+            "status": "Not started",
+            "dependency": previous_task_id,
+            "notes": "Template milestone; confirm owner and deadline with the customer.",
+        })
+        previous_task_id = task_id
+
+    combined = pd.concat([existing, pd.DataFrame(rows, columns=FIELDS)], ignore_index=True)
+    return validate_tasks(combined)

@@ -48,3 +48,7 @@ References:
 https://docs.streamlit.io/develop/api-reference
 https://platform.claude.com/docs/en/api/python/messages/create
 https://docs.gspread.org/en/latest/oauth2.html
+
+## Guided build
+Start with [Stage 1: customer creation and tracking](docs/STAGE_01_CUSTOMER_TRACKER.md).
+The Tracker tab now creates a six-task plan for a new customer with an initial owner and kickoff date.

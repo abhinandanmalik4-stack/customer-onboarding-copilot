@@ -6,7 +6,7 @@ from core import *
 
 st.set_page_config(page_title="Onboarding copilot",page_icon=":material/rocket_launch:",layout="wide")
 st.title("Customer onboarding copilot")
-st.caption("Portfolio simulation | Eight fictional customers | Local mode needs no API keys")
+st.caption("Portfolio simulation | Starts with eight fictional customers | Local mode needs no API keys")
 use_ai=st.sidebar.radio("Assistant mode",["Local demo","Claude API"])=="Claude API"
 if use_ai: st.sidebar.info("Assistant requests send the entered text and FAQ context to Claude; API usage may be billed.")
 today=st.sidebar.date_input("Flag calculation date",date.today())
@@ -19,6 +19,27 @@ with st.container(horizontal=True):
     st.metric("Blocked tasks",int(view.blocked.sum()),border=True)
 tabs=st.tabs(["Tracker","FAQ assistant","Call notes","Escalations","Sheets export"])
 with tabs[0]:
+    if "customer_created" in st.session_state:
+        st.success(st.session_state.pop("customer_created"))
+    with st.expander("Start onboarding a customer", expanded=True):
+        st.write("Create a six-step onboarding plan, then adjust each task's owner and deadline in the tracker.")
+        st.caption("Template deadlines: kickoff day, then +2, +4, +6, +8 and +10 calendar days. Confirm these dates with your customer.")
+        with st.form("new_customer"):
+            customer_name = st.text_input("Customer name", key="new_customer_name", placeholder="Acme Studio")
+            customer_owner = st.text_input("Initial task owner", key="new_customer_owner", placeholder="Abhinandan")
+            kickoff_date = st.date_input("Kickoff date", date.today(), key="new_customer_date")
+            create_submitted = st.form_submit_button("Create onboarding plan")
+        if create_submitted:
+            try:
+                updated_tasks = create_customer(load_tasks(), customer_name, customer_owner, kickoff_date)
+                save_csv(updated_tasks, TASKS)
+                st.session_state["customer_created"] = "Customer added with six tasks. Review the owners and deadlines below."
+                st.rerun()
+            except (ValueError, TypeError, OverflowError) as error:
+                st.error(str(error))
+            except OSError:
+                st.error("The plan could not be saved. Check file permissions and try again.")
+
     customers=st.multiselect("Filter customers",sorted(tasks.customer.unique()))
     st.dataframe(view[view.customer.isin(customers)] if customers else view,hide_index=True,alt="Customer tasks and delay flags")
     st.bar_chart(pd.crosstab(tasks.customer,tasks.status),alt="Task status by customer")
