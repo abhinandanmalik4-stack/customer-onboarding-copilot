@@ -1,0 +1,49 @@
+id,customer,task,owner,due_date,status,dependency,notes
+C01-1,Demo Customer 01,Kickoff,Asha,2026-10-02,Done,,Simulated onboarding
+C01-2,Demo Customer 01,Requirements,Rohan,2026-10-04,In progress,C01-1,Simulated onboarding
+C01-3,Demo Customer 01,Setup,Meera,2026-10-06,Not started,C01-2,Simulated onboarding
+C01-4,Demo Customer 01,Testing,Asha,2026-10-08,Not started,C01-3,Simulated onboarding
+C01-5,Demo Customer 01,Training,Rohan,2026-10-10,Not started,C01-4,Simulated onboarding
+C01-6,Demo Customer 01,Go-live,Meera,2026-10-12,Not started,C01-5,Simulated onboarding
+C02-1,Demo Customer 02,Kickoff,Asha,2026-10-01,Done,,Simulated onboarding
+C02-2,Demo Customer 02,Requirements,Rohan,2026-10-03,Done,C02-1,Simulated onboarding
+C02-3,Demo Customer 02,Setup,Meera,2026-10-05,In progress,C02-2,Simulated onboarding
+C02-4,Demo Customer 02,Testing,Asha,2026-10-07,Not started,C02-3,Simulated onboarding
+C02-5,Demo Customer 02,Training,Rohan,2026-10-09,Not started,C02-4,Simulated onboarding
+C02-6,Demo Customer 02,Go-live,Meera,2026-10-11,Not started,C02-5,Simulated onboarding
+C03-1,Demo Customer 03,Kickoff,Asha,2026-09-30,Done,,Simulated onboarding
+C03-2,Demo Customer 03,Requirements,Rohan,2026-10-02,Done,C03-1,Simulated onboarding
+C03-3,Demo Customer 03,Setup,Meera,2026-10-04,Done,C03-2,Simulated onboarding
+C03-4,Demo Customer 03,Testing,Asha,2026-10-06,In progress,C03-3,Simulated onboarding
+C03-5,Demo Customer 03,Training,Rohan,2026-10-08,Not started,C03-4,Simulated onboarding
+C03-6,Demo Customer 03,Go-live,Meera,2026-10-10,Not started,C03-5,Simulated onboarding
+C04-1,Demo Customer 04,Kickoff,Asha,2026-09-29,In progress,,Simulated onboarding
+C04-2,Demo Customer 04,Requirements,Rohan,2026-10-01,Not started,C04-1,Simulated onboarding
+C04-3,Demo Customer 04,Setup,Meera,2026-10-03,Not started,C04-2,Simulated onboarding
+C04-4,Demo Customer 04,Testing,Asha,2026-10-05,Not started,C04-3,Simulated onboarding
+C04-5,Demo Customer 04,Training,Rohan,2026-10-07,Not started,C04-4,Simulated onboarding
+C04-6,Demo Customer 04,Go-live,Meera,2026-10-09,Not started,C04-5,Simulated onboarding
+C05-1,Demo Customer 05,Kickoff,Asha,2026-09-28,Done,,Simulated onboarding
+C05-2,Demo Customer 05,Requirements,Rohan,2026-09-30,In progress,C05-1,Simulated onboarding
+C05-3,Demo Customer 05,Setup,Meera,2026-10-02,Not started,C05-2,Simulated onboarding
+C05-4,Demo Customer 05,Testing,Asha,2026-10-04,Not started,C05-3,Simulated onboarding
+C05-5,Demo Customer 05,Training,Rohan,2026-10-06,Not started,C05-4,Simulated onboarding
+C05-6,Demo Customer 05,Go-live,Meera,2026-10-08,Not started,C05-5,Simulated onboarding
+C06-1,Demo Customer 06,Kickoff,Asha,2026-09-27,Done,,Simulated onboarding
+C06-2,Demo Customer 06,Requirements,Rohan,2026-09-29,Done,C06-1,Simulated onboarding
+C06-3,Demo Customer 06,Setup,Meera,2026-10-01,In progress,C06-2,Simulated onboarding
+C06-4,Demo Customer 06,Testing,Asha,2026-10-03,Not started,C06-3,Simulated onboarding
+C06-5,Demo Customer 06,Training,Rohan,2026-10-05,Not started,C06-4,Simulated onboarding
+C06-6,Demo Customer 06,Go-live,Meera,2026-10-07,Not started,C06-5,Simulated onboarding
+C07-1,Demo Customer 07,Kickoff,Asha,2026-09-26,Done,,Simulated onboarding
+C07-2,Demo Customer 07,Requirements,Rohan,2026-09-28,Done,C07-1,Simulated onboarding
+C07-3,Demo Customer 07,Setup,Meera,2026-09-30,Done,C07-2,Simulated onboarding
+C07-4,Demo Customer 07,Testing,Asha,2026-10-02,In progress,C07-3,Simulated onboarding
+C07-5,Demo Customer 07,Training,Rohan,2026-10-04,Not started,C07-4,Simulated onboarding
+C07-6,Demo Customer 07,Go-live,Meera,2026-10-06,Not started,C07-5,Simulated onboarding
+C08-1,Demo Customer 08,Kickoff,Asha,2026-09-25,In progress,,Simulated onboarding
+C08-2,Demo Customer 08,Requirements,Rohan,2026-09-27,Not started,C08-1,Simulated onboarding
+C08-3,Demo Customer 08,Setup,Meera,2026-09-29,Not started,C08-2,Simulated onboarding
+C08-4,Demo Customer 08,Testing,Asha,2026-10-01,Not started,C08-3,Simulated onboarding
+C08-5,Demo Customer 08,Training,Rohan,2026-10-03,Not started,C08-4,Simulated onboarding
+C08-6,Demo Customer 08,Go-live,Meera,2026-10-05,Not started,C08-5,Simulated onboarding
