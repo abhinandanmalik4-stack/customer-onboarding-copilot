@@ -60,3 +60,8 @@ https://docs.gspread.org/en/latest/oauth2.html
 ## Guided build
 Start with [Stage 1: customer creation and tracking](docs/STAGE_01_CUSTOMER_TRACKER.md).
 The Tracker tab now creates a six-task plan for a new customer with an initial owner and kickoff date.
+
+## Open in VS Code
+Open Onboarding-Copilot.code-workspace, then use Terminal > Run Task > Run beginner tracker.
+Read [the complete Hinglish beginner guide](docs/BEGINNER_GUIDE_HINGLISH.md) for the purpose, code flow, interview explanations and future roadmap.
+
